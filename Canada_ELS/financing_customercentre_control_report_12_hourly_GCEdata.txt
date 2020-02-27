@@ -1,0 +1,15 @@
+#To notify support team if a DCD has not been received by GCMS 4 hours after it was sent from Customer centre.
+# Number of hours, normally do not change.
+FREQUENCY=4
+# App Team fills in "What script to start" behind APP_START=. The script should resides in GSA filespace.
+APP_START="/web/server_root_www/bin/financing/customercentre/scripts/control_reports/control_reports.ksh cr12Hourly 897 649"
+# App Team fills in "What are we checking for/starting in ps -ef", that is the script name in APP_START
+PROCESS_TO_START="control_reports.ksh cr12Hourly 897 649"
+# App Team substitutes "sample" with a unique name
+TS_FILE=/home/app/cr_cc/financing_customercentre_control_report_12_hourly_GCEdata.timestamp
+# App Team substitutes "sample" with a unique name
+LOG=/home/app/cr_cc/financing_customercentre_control_report_12_hourly_ts.log
+# This is the GSA login with the userid provided by the app team with access password in the gce.conf
+# App Team should not change the following line
+GSA_AUTHENT="cat /home/app/cr_cc/gce.conf | gsa_login -p custctr"
+
